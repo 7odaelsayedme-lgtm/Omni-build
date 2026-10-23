@@ -36,6 +36,7 @@ body {
 img { display: block; max-width: 100%; }
 a { color: inherit; }
 h1, h2, h3, h4 { font-family: var(--f-head); margin: 0; line-height: 1.25; font-weight: 700; }
+[lang="ar"] :is(h1, h2, h3, h4) { line-height: 1.45; }
 p, ul, ol, dl, figure { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
 svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
@@ -88,7 +89,7 @@ main, .footer { position: relative; z-index: 1; }
 
 /* ---------- type helpers */
 .eyebrow { font-size: 15px; font-weight: 600; color: var(--red-d); letter-spacing: .02em; margin-bottom: 10px; }
-.dark .eyebrow, .hero .eyebrow, .journey .eyebrow, .eyebrow.red { color: var(--red-l); }
+.dark .eyebrow, .hero .eyebrow, .journey .eyebrow, .build .eyebrow, .eyebrow.red { color: var(--red-l); }
 h2 { font-size: clamp(30px, 3.6vw, 48px); }
 .lead { font-size: clamp(17px, 1.5vw, 20px); color: #C9CED9; line-height: 1.75; }
 .lead.dark { color: var(--ink); font-weight: 500; }
@@ -100,12 +101,14 @@ h2 { font-size: clamp(30px, 3.6vw, 48px); }
 
 /* ---------- HERO */
 .hero { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: 120px var(--gut) 80px; position: relative; }
-.hero-copy { width: min(620px, 50%); margin-inline-end: auto; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+.hero-copy { width: min(560px, 43%); margin-inline-end: auto; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
 @media (min-width: 1500px) { .hero-copy { margin-inline-start: calc((100vw - 1400px) / 2); } }
 .hero-logo { display: flex; align-items: center; gap: 18px; color: var(--light); }
 .hero-mark { width: clamp(64px, 6vw, 86px); height: clamp(64px, 6vw, 86px); fill: currentColor; stroke: none; }
 .redbar { width: 110px; height: 5px; background: var(--red); }
 .hero h1 { font-size: clamp(34px, 4.6vw, 64px); line-height: 1.2; }
+[lang="ar"] .hero h1 { line-height: 1.4; }
+[lang="en"] .hero h1 { font-size: clamp(32px, 3.8vw, 54px); }
 .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
 .scroll-hint { position: absolute; bottom: 28px; inset-inline-start: 50%; translate: -50% 0; width: 26px; height: 42px; border: 2px solid #4A5269; border-radius: 14px; }
 [dir="rtl"] .scroll-hint { translate: 50% 0; }
@@ -113,13 +116,13 @@ h2 { font-size: clamp(30px, 3.6vw, 48px); }
 @keyframes hint { 0% { transform: translateY(0); opacity: 1; } 80% { transform: translateY(14px); opacity: 0; } 100% { opacity: 0; } }
 
 /* ---------- JOURNEY */
-.journey { position: relative; padding: 0 var(--gut); }
+.journey, .build { position: relative; padding: 0 var(--gut); }
 .journey-head { max-width: 1400px; margin: 0 auto; padding-top: 18vh; }
 .journey-head > * { width: min(560px, 46%); }
 @media (min-width: 1500px) { .journey-head { padding-inline: 0; } }
 .journey-progress { position: fixed; top: 50%; inset-inline-end: 20px; translate: 0 -50%; width: 3px; height: 160px; background: #2A3144; border-radius: 3px; overflow: hidden; z-index: 2; opacity: 0; transition: opacity .3s; pointer-events: none; }
 .journey-progress span { display: block; width: 100%; height: 100%; background: var(--red); transform-origin: top; transform: scaleY(0); }
-body:has(.stage.is-on) .journey-progress { opacity: 1; }
+body:has(.journey .stage.is-on) .journey-progress { opacity: 1; }
 .stage { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; max-width: 1400px; margin: 0 auto; }
 .stage-card {
   width: min(520px, 44%); padding: 36px; border-radius: 20px;
@@ -129,9 +132,12 @@ body:has(.stage.is-on) .journey-progress { opacity: 1; }
 }
 .stage.is-on .stage-card { opacity: 1; transform: none; border-color: rgba(225, 48, 46, .55); }
 .stage-num { font-family: 'Alexandria', sans-serif; font-weight: 700; color: var(--red-l); font-size: 18px; }
-.stage-verb { font-family: var(--f-head); font-size: clamp(40px, 4.4vw, 60px); font-weight: 800; line-height: 1.15; margin: 4px 0; }
+.stage-verb { font-family: var(--f-head); font-size: clamp(40px, 4.4vw, 60px); font-weight: 800; line-height: 1.35; margin: 6px 0 12px; }
 .stage-card h3 { font-size: 22px; color: #D3D7E0; font-weight: 600; margin-bottom: 14px; }
 .stage-card p { color: #C9CED9; }
+.bstep { min-height: 80vh; min-height: 80svh; }
+.stage-card .bstep-title { font-size: clamp(28px, 2.8vw, 38px); color: var(--light); font-weight: 800; line-height: 1.4; margin: 8px 0 12px; }
+.build .journey-head .lead { margin-top: 12px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 .chips li { font-size: 14px; padding: 6px 12px; border-radius: 999px; border: 1px solid #3A4157; color: #E4E7EE; }
 .chips.light li { border-color: var(--line); color: var(--ink); background: var(--card); }

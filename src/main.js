@@ -139,7 +139,23 @@ if (webglOK()) {
   const st = scene3d.state;
 
   // intro: the building rises floor by floor
-  gsap.to(st, { intro: 1, duration: reduced ? 0.01 : 3.2, ease: 'power2.inOut', delay: 0.3 });
+  gsap.to(st, { intro: 1, duration: reduced ? 0.01 : 4.2, ease: 'power1.inOut', delay: 0.3 });
+
+  // the villa build steps: each card drives one sixth of the construction
+  ScrollTrigger.create({
+    trigger: '#build', start: 'top 40%', endTrigger: '.bstep:last-of-type', end: 'bottom center',
+    onEnter: () => { st.build = 0; },
+    onEnterBack: () => { st.build = 1; },
+    onLeave: () => { st.build = 1; },
+    onLeaveBack: () => { st.build = -1; },
+  });
+  const steps = $$('.bstep');
+  steps.forEach((s, i) => {
+    ScrollTrigger.create({
+      trigger: s, start: 'top center', end: 'bottom center',
+      onUpdate: (self) => { st.build = (i + self.progress) / steps.length; },
+    });
+  });
 
   // scroll through the journey drives the camera and the service layers
   gsap.to(st, {

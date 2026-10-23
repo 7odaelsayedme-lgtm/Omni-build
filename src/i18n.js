@@ -13,6 +13,16 @@ export const en = {
   'hero.cta1': 'Request a Quote',
   'hero.cta2': 'Explore Our Services',
 
+  'build.eyebrow': 'From plot to keys',
+  'build.title': 'How we build your villa, step by step',
+  'build.lead': 'Scroll down and watch the villa rise, from excavation to handover',
+  'b1.t': 'Excavation & Foundations', 'b1.p': 'Site survey and excavation, then footings and the concrete raft poured once soil and rebar are approved',
+  'b2.t': 'Concrete Structure', 'b2.p': 'Columns and slabs for both floors and the roof annex, with concrete testing and engineer sign-off on every pour',
+  'b3.t': 'Blockwork & Walls', 'b3.p': 'Block walls with door and window openings, safe scaffolding and full site safety requirements',
+  'b4.t': 'MEP & Insulation', 'b4.p': 'Electrical, plumbing and HVAC runs inside the walls, plus roof waterproofing and thermal insulation',
+  'b5.t': 'Finishes & Facade', 'b5.p': 'Plaster, paint and a Najdi-inspired facade: triangular crenellations, a wooden mashrabiya and tall narrow windows',
+  'b6.t': 'Boundary Wall & Handover', 'b6.p': 'Boundary wall, gate and lighting, every system tested, then the keys handed over with the warranty file and maintenance plan',
+
   'journey.eyebrow': 'The Integrated Model',
   'journey.title': 'The full building lifecycle with one partner',
   'st1.verb': 'Build', 'st1.title': 'General Contracting',
